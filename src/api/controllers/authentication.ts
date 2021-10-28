@@ -1,6 +1,24 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
+import { isEmail, isValidPassword } from '../util/validators';
 
 export async function registration(req: Request, res: Response): Promise<void> {
-    console.log(req.body);
+  const { email, password, name } = req.body;
+
+  if (email.length <= 0 || !isEmail(email)) {
+    res.status(500);
+  }
+
+  if (password.length <= 0 || !isValidPassword(password)) {
+    res.status(500);
+  }
+
+  if (name.length <= 0) {
+    res.status(500);
+  }
+
+  try {
     res.send('Ok');
-};
+  } catch {
+    res.status(500);
+  }
+}
