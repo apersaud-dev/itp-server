@@ -13,6 +13,14 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  single_set_max: {
+    type: [Number],
+    required: false,
+  },
+  sessions: {
+    type: 
+    required: false
+  },
 });
 
 const User = mongoose.model('User', UserSchema);

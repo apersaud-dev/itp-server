@@ -17,7 +17,7 @@ export async function registration(req: Request, res: Response): Promise<void> {
   }
 
   try {
-    res.send('Ok');
+    res.status(200).send('Ok');
   } catch {
     res.status(500);
   }
